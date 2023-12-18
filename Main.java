@@ -2,8 +2,7 @@ import processing.core.PApplet;
 
 /**
  * Main class to execute sketch
- * @author 
- *
+ * @author Dong Jin
  */
 class Main {
   public static void main(String[] args) {
