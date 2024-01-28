@@ -64,17 +64,27 @@ public class Sketch extends PApplet {
     // drawing snow
     for (int i = 0; i < 25; i++)
     {
+      // 
+      if (snowY[i] > height && !ballHideStatus[i])
+      {
+        snowY[i] = random(0);
+        snowX[i] = random(width);
+        ballHideStatus[i] = false;
+      }
+
+      if (snowY[i] > height && ballHideStatus[i])
+      {
+        snowY[i] = random(0);
+        snowX[i] = random(width);
+        ballHideStatus[i] = false;
+      }
+
+      // when the ball is visible do this
       if (!ballHideStatus[i])
       {
         fill(snowColor[i]);
         ellipse(snowX[i], snowY[i], 30, 30);
         snowY[i] += snowSpeed[i] * snowfallSpeed;
-
-        if (snowY[i] > height)
-        {
-          snowY[i] = random(0);
-          snowX[i] = random(width);
-        }
       }
       
     // collision detection between player and snow
